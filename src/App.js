@@ -32,17 +32,31 @@ class App extends React.Component {
     });
   }
 
-  editTodo() {
-    const newTodos = JSON.parse(JSON.stringify(this.state.todos)); //parse the state
-    this.setState({
-      //set the state
+  editTodo(editTodoObject) {
+    debugger;
+    const newTodos = JSON.parse(JSON.stringify(this.state.todos));
+    newTodos.map((todo) => {
+      if (todo.id === editTodoObject.id) {
+        todo.title = editTodoObject.title;
+        todo.description = editTodoObject.description;
+        todo.status = editTodoObject.status;
+      }
+      return todo;
+    });
+    return this.setState({
       todos: newTodos,
-      currentlyEditingTodo: null,
     });
   }
 
-  deleteTodo() {
-    // finish me
+  deleteTodo(toToDelete) {
+    debugger;
+    const newTodos = JSON.parse(JSON.stringify(this.state.todos));
+    newTodos.map((todo) => {
+      if (todo.id === toToDelete.id) {
+        newTodos.splice(newTodos.indexOf(todo), 1);
+      }
+      return todo;
+    });
   }
 
   handleEditCallBack = (todo) => this.setState({ currentlyEditingTodo: todo });
