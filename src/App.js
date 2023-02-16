@@ -59,6 +59,7 @@ class App extends React.Component {
         />
         <TodoContainer
           todos={this.state.todos}
+          handleEditCallBack={this.handleEditCallBack}
           handleDelete={this.deleteTodo}
         />
       </div>
