@@ -6,13 +6,14 @@ import TodoInput from './components/TodoInput';
 class App extends React.Component {
   //todo app structure {status, description, title, id}
   constructor() {
-    super();
+    super(); //initialize
     this.state = {
       todos: [
+        //create
         {
           id: 1,
           title: 'test title',
-          description: 'another test descripion',
+          description: 'another test  description',
           status: 'PENDING',
         },
       ],
@@ -31,7 +32,12 @@ class App extends React.Component {
   }
 
   editTodo() {
-    // finish me
+    const newTodos = JSON.parse(JSON.stringify(this.state.todos)); //parse the state
+    this.setState({
+      //set the state
+      todos: newTodos,
+      currentlyEditingTodo: null,
+    });
   }
 
   deleteTodo() {
@@ -57,6 +63,6 @@ class App extends React.Component {
       </div>
     );
   }
-} //find
+}
 
 export default App;
