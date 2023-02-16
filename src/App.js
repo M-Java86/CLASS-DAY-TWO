@@ -20,6 +20,7 @@ class App extends React.Component {
       currentlyEditingTodo: null,
     };
     this.addTodo = this.addTodo.bind(this);
+    this.editTodo = this.editTodo.bind(this);
   }
 
   addTodo(todoObject) {
@@ -53,11 +54,11 @@ class App extends React.Component {
           todo={this.state.currentlyEditingTodo}
           todoAmount={this.state.todos.length}
           handleSaveClick={this.addTodo}
+          handleEditClick={this.editTodo}
           buttonText={this.state.currentlyEditingTodo ? 'Edit' : 'Add'}
         />
         <TodoContainer
           todos={this.state.todos}
-          handleEdit={this.editTodo}
           handleDelete={this.deleteTodo}
         />
       </div>
